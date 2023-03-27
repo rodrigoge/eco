@@ -1,4 +1,4 @@
-package br.com.eco.userservice.domain;
+package br.com.eco.userservice.domains;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,6 +39,6 @@ public class User {
 
     @Column
     @NotBlank(message = "Password must not be empty.")
-    @Size(min= 4, max = 8, message = "This e-mail is must be between {min} and {max}.")
+    @Size(max = 250, message = "This password is exceed limit.")
     private String password;
 }
