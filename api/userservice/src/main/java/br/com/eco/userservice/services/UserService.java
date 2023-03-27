@@ -9,6 +9,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @Log4j2
 public class UserService {
@@ -33,5 +36,21 @@ public class UserService {
         var userTO = userMapper.fromUser(userResponse);
         log.info("Finishing the register user flow.");
         return userTO;
+    }
+
+    public List<UserTO> getUsers() {
+        log.info("Starting the get users flow.");
+        var users = userRepository.findAll();
+        var usersTO = buildUsers(users);
+        log.info("Finishing the get users flow.");
+        return usersTO;
+    }
+
+    public List<UserTO> buildUsers(List<User> users) {
+        log.info("Initializing mapping from users.");
+        return users
+                .stream()
+                .map(userMapper::fromUser)
+                .collect(Collectors.toList());
     }
 }
