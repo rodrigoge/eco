@@ -1,17 +1,16 @@
-package br.com.eco.userservice.to;
+package br.com.eco.userservice.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserTO {
+public enum UserOrderByEnum {
 
-    private String name;
+    ASC("asc"),
+    DESC("desc");
 
-    private String email;
+    private String description;
 }
