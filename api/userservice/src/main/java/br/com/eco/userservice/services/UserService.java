@@ -95,7 +95,14 @@ public class UserService {
                                             Root<User> root) {
         var predicates = new ArrayList<Predicate>();
         if (!StringUtils.isEmpty(user.getName())) {
-            predicates.add(criteriaBuilder.like(root.get("name"), "%" + user.getName() + "%"));
+            predicates.add(criteriaBuilder.like(
+                    criteriaBuilder.lower(root.get("name")), "%" + user.getName() + "%")
+            );
+        }
+        if (!StringUtils.isEmpty(user.getEmail())) {
+            predicates.add(criteriaBuilder.like(
+                    criteriaBuilder.lower(root.get("email")), "%" + user.getEmail() + "%")
+            );
         }
         return predicates;
     }
