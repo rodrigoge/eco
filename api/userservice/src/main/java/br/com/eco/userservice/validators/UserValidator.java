@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ReflectionUtils;
+
+import java.util.Map;
 
 @Component
 @Log4j2
@@ -46,5 +49,21 @@ public class UserValidator {
         var password = user.getPassword();
         user.setPassword(passwordEncoder.encode(password));
         log.info("Finishing encoding password.");
+    }
+
+    public void findUserFields(User user, Map<Object, Object> fieldsUser) {
+        log.info("Searching user fields.");
+        if (fieldsUser.isEmpty()) return;
+        fieldsUser.forEach((key, value) -> {
+            var field = ReflectionUtils.findField(User.class, (String) key);
+            if (field == null)
+                throw new CustomException(
+                        HttpStatus.NOT_FOUND, "Field not found."
+                );
+            field.setAccessible(true);
+            if (field.getName().equals("password")) encodingPassword(user);
+            ReflectionUtils.setField(field, user, user.getPassword());
+        });
+        log.info("Finishing searching user fields.");
     }
 }
