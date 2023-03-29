@@ -1,7 +1,5 @@
 package br.com.eco.userservice.domains;
 
-import br.com.eco.userservice.enums.UserOrderByEnum;
-import br.com.eco.userservice.enums.UserSortByEnum;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +17,7 @@ public class UserRequest {
 
     private Integer limit;
 
-    private UserSortByEnum sortByEnum;
+    private String sortByEnum;
 
-    private UserOrderByEnum orderByEnum;
+    private String orderByEnum;
 }

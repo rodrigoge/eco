@@ -4,6 +4,7 @@ import br.com.eco.userservice.domains.User;
 import br.com.eco.userservice.domains.UserRepository;
 import br.com.eco.userservice.domains.UserRequest;
 import br.com.eco.userservice.domains.UserResponse;
+import br.com.eco.userservice.domains.UsersResponse;
 import br.com.eco.userservice.enums.UserOrderByEnum;
 import br.com.eco.userservice.enums.UserSortByEnum;
 import br.com.eco.userservice.mappers.UserMapper;
@@ -46,25 +47,29 @@ public class UserService {
         userValidator.checkPasswordLengthIsValid(user.getPassword());
         userValidator.encodingPassword(user);
         log.info("Saving user in database.");
-        var userResponse = userRepository.save(user);
+        var userSaved = userRepository.save(user);
         log.info("Initializing mapping from user.");
-        var userTO = userMapper.fromUser(userResponse);
+        var userResponse = userMapper.fromUser(userSaved);
         log.info("Finishing the register user flow.");
-        return userTO;
+        return userResponse;
     }
 
-    public List<UserResponse> getUsers(UserRequest userRequest) {
+    public UsersResponse getUsers(UserRequest userRequest) {
         log.info("Starting the get users flow.");
         var criteriaBuilder = entityManager.getCriteriaBuilder();
         var query = buildGetUsersQuery(userRequest, criteriaBuilder);
         log.info("Executing queries and mapping the response");
-//        var users = userRepository.findAll();
         var users = query.getResultList();
         var response = buildUsers(users);
         var countQuery = buildUserCountQuery(userRequest, criteriaBuilder);
         var count = entityManager.createQuery(countQuery).getSingleResult().intValue();
+        var usersResponse = UsersResponse
+                .builder()
+                .users(response)
+                .totalNumberOfRecords(count)
+                .build();
         log.info("Finishing the get users flow.");
-        return response;
+        return usersResponse;
     }
 
     public TypedQuery<User> buildGetUsersQuery(UserRequest userRequest, CriteriaBuilder criteriaBuilder) {
@@ -73,7 +78,13 @@ public class UserService {
         var predicates = buildPredicates(userRequest, criteriaBuilder, root);
         query.select(root);
         query.where(predicates.toArray(new Predicate[0]));
-        sortingAndOrderQuery(query, criteriaBuilder, root, userRequest.getSortByEnum(), userRequest.getOrderByEnum());
+        sortingAndOrderQuery(
+                query,
+                criteriaBuilder,
+                root,
+                UserSortByEnum.valueOf(userRequest.getSortByEnum().toUpperCase()),
+                UserOrderByEnum.valueOf(userRequest.getOrderByEnum().toUpperCase())
+        );
         var typedQuery = entityManager.createQuery(query);
         paginationQuery(typedQuery, userRequest.getOffset(), userRequest.getLimit());
         return typedQuery;

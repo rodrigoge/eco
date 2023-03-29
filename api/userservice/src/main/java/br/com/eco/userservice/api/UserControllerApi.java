@@ -2,9 +2,9 @@ package br.com.eco.userservice.api;
 
 import br.com.eco.userservice.domains.User;
 import br.com.eco.userservice.domains.UserRequest;
-import br.com.eco.userservice.enums.UserSortByEnum;
-import br.com.eco.userservice.services.UserService;
 import br.com.eco.userservice.domains.UserResponse;
+import br.com.eco.userservice.domains.UsersResponse;
+import br.com.eco.userservice.services.UserService;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @Log4j2
@@ -34,12 +33,12 @@ public class UserControllerApi {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<UserResponse>> getUsers(String name,
-                                                       String email,
-                                                       Integer offset,
-                                                       Integer limit,
-                                                       String sort,
-                                                       String order) {
+    public ResponseEntity<UsersResponse> getUsers(@RequestParam(required = false) String name,
+                                                  @RequestParam(required = false) String email,
+                                                  @RequestParam Integer offset,
+                                                  @RequestParam Integer limit,
+                                                  @RequestParam String sort,
+                                                  @RequestParam String order) {
         log.info("Initializing request for get users.");
         var request = UserRequest
                 .builder()
@@ -47,6 +46,8 @@ public class UserControllerApi {
                 .email(email)
                 .limit(limit)
                 .offset(offset)
+                .sortByEnum(sort)
+                .orderByEnum(order)
                 .build();
         var response = userService.getUsers(request);
         return ResponseEntity.status(HttpStatus.OK).body(response);
