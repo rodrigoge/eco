@@ -56,4 +56,14 @@ public class UserService {
         log.info("Finishing the update user flow.");
         return userResponse;
     }
+
+    public void removeUser(Long userId) {
+        log.info("Starting the remove user flow.");
+        var user = userRepository.findById(userId).orElseThrow(
+                () -> new CustomException(HttpStatus.NOT_FOUND, "User not found.")
+        );
+        log.info("Removing user in database.");
+        userRepository.deleteById(user.getId());
+        log.info("Finishing the remove user flow.");
+    }
 }
