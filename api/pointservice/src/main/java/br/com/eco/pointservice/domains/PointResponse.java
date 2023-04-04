@@ -19,9 +19,9 @@ public class PointResponse {
 
     private String uf;
 
-    private Integer initialHour;
+    private String initialHour;
 
-    private Integer endHour;
+    private String endHour;
 
     private String email;
 

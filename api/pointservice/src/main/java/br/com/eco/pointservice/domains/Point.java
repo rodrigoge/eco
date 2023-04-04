@@ -49,12 +49,12 @@ public class Point {
     @Column
     @NotBlank(message = "Initial hour must not be empty.")
     @Size(max = 2, message = "This initial hour is exceed limit.")
-    private Integer initialHour;
+    private String initialHour;
 
     @Column
     @NotBlank(message = "End hour must not be empty.")
     @Size(max = 2, message = "This end hour is exceed limit.")
-    private Integer endHour;
+    private String endHour;
 
     @Column
     @NotBlank(message = "E-mail must not be empty.")

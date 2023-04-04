@@ -5,8 +5,8 @@ CREATE TABLE IF NOT EXISTS public."points"
     address character varying(255),
     city character varying(255),
     uf character varying(2),
-    initial_hour numeric(2),
-    end_hour numeric(2),
+    initial_hour character varying(2),
+    end_hour character varying(2),
     email character varying(255),
     phone_number character varying(14)
 );
