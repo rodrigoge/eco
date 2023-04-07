@@ -1,10 +1,11 @@
 import '../src/styles/global.scss'
+import Router from './routes/Router'
 
 function App() {
 
   return (
-    <div className="App">
-      <h1>Hello Eco</h1>
+    <div>
+      <Router />
     </div>
   )
 }
