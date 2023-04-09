@@ -19,9 +19,9 @@
         border-radius: 8px;
         margin-top: 6px;
 
-        .icon {
-            font-size: 20px;
-            margin-left: 6px;
+        span {
+            font-size: 18px;
+            margin-left: 8px;
             color: $green;
         }
 
@@ -33,6 +33,17 @@
             outline: none;
             font-size: 14px;
             border-radius: 8px;
+        }
+
+        .showEyeIcon {
+            margin-right: 16px;
+            cursor: pointer;
+
+            .icon-show-hide {
+                color: $green;
+                font-size: 20px;
+            }
+
         }
     }
 }

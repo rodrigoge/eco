@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import './styles.scss';
-import registerImg from '../../assets/register-image.svg'
-import { useNavigate } from 'react-router-dom';
 import { HiOutlineMail } from 'react-icons/hi'
-import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineUser } from 'react-icons/ai'
 import { BiLockAlt } from 'react-icons/bi'
+import registerImg from '../../assets/register-image.svg'
 import InputField from '../../components/InputField';
 
 export default function RegisterUser() {
-    const [showPassword, setShowPassword] = useState(true);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <div className='register-user-container'>
@@ -23,41 +24,36 @@ export default function RegisterUser() {
                         label='Nome Completo'
                         placeholder='Preencha com o seu nome completo'
                         type='text'
+                        icon={<AiOutlineUser />}
+                        isPassword={false}
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        maxLength={255}
                     />
 
-                    <div className="email-field">
-                        <label htmlFor="email-id">E-mail</label>
+                    <InputField
+                        inputId='email-id'
+                        label='E-mail'
+                        placeholder='Preencha com o seu e-mail'
+                        type='text'
+                        icon={<HiOutlineMail />}
+                        isPassword={false}
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        maxLength={255}
+                    />
 
-                        <div className="email-input">
-                            <HiOutlineMail className='icon' />
-                            <input
-                                type="text"
-                                id="email-id"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="password-field">
-                        <label htmlFor="password-id">Senha</label>
-
-                        <div className="password-input">
-                            <BiLockAlt className='icon' />
-                            <input
-                                type="text"
-                                id="password-id"
-                            />
-
-                            {showPassword ?
-                                <span className='showEyeIcon'>
-                                    <AiOutlineEyeInvisible />
-                                </span>
-                                :
-                                <span className='showEyeIcon'>
-                                    <AiOutlineEye />
-                                </span>
-                            }
-                        </div>
-                    </div>
+                    <InputField
+                        inputId='password-id'
+                        label='Senha'
+                        placeholder='Preencha com a sua senha'
+                        type='password'
+                        icon={<BiLockAlt />}
+                        isPassword={true}
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        maxLength={8}
+                    />
 
                     <button>Cadastrar</button>
                 </div>
