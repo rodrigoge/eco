@@ -20,41 +20,44 @@ export default function RegisterUser() {
                         <h2>Cadastre-se agora na <span>eco</span>.</h2>
                     </header>
 
-                    <InputField
-                        inputId='name-id'
-                        label='Nome Completo'
-                        placeholder='Preencha com o seu nome completo'
-                        type='text'
-                        icon={<AiOutlineUser />}
-                        isPassword={false}
-                        value={name}
-                        onChange={e => setName(e.target.value)}
-                        maxLength={255}
-                    />
+                    <div className="fields">
+                        <InputField
+                            inputId='name-id'
+                            label='Nome Completo'
+                            placeholder='Preencha com o seu nome completo'
+                            type='text'
+                            icon={<AiOutlineUser />}
+                            isPassword={false}
+                            value={name}
+                            onChange={e => setName(e.target.value)}
+                            maxLength={255}
+                        />
 
-                    <InputField
-                        inputId='email-id'
-                        label='E-mail'
-                        placeholder='Preencha com o seu e-mail'
-                        type='text'
-                        icon={<HiOutlineMail />}
-                        isPassword={false}
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        maxLength={255}
-                    />
+                        <InputField
+                            inputId='email-id'
+                            label='E-mail'
+                            placeholder='Preencha com o seu e-mail'
+                            type='text'
+                            icon={<HiOutlineMail />}
+                            isPassword={false}
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                            maxLength={255}
+                        />
 
-                    <InputField
-                        inputId='password-id'
-                        label='Senha'
-                        placeholder='Preencha com a sua senha'
-                        type='password'
-                        icon={<BiLockAlt />}
-                        isPassword={true}
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                        maxLength={8}
-                    />
+                        <InputField
+                            inputId='password-id'
+                            label='Senha'
+                            placeholder='Preencha com a sua senha'
+                            type='password'
+                            icon={<BiLockAlt />}
+                            isPassword={true}
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                            maxLength={8}
+                        />
+                    </div>
+
 
                     <ButtonComponent
                         className='btn btn-green'
