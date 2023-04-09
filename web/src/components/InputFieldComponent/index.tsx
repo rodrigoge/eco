@@ -3,7 +3,7 @@ import './styles.scss';
 import { InputType } from "../../types/InputType";
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
-export default function InputField({
+export default function InputFieldComponent({
     inputId,
     placeholder,
     label,

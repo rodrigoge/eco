@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { IconBaseProps, IconType } from "react-icons/lib";
 
 export type InputType = {
     inputId?: string;

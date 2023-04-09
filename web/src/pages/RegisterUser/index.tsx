@@ -4,7 +4,8 @@ import { HiOutlineMail } from 'react-icons/hi'
 import { AiOutlineUser } from 'react-icons/ai'
 import { BiLockAlt } from 'react-icons/bi'
 import registerImg from '../../assets/register-image.svg'
-import InputField from '../../components/InputField';
+import InputField from '../../components/InputFieldComponent';
+import ButtonComponent from '../../components/ButtonComponent';
 
 export default function RegisterUser() {
     const [name, setName] = useState('');
@@ -55,7 +56,11 @@ export default function RegisterUser() {
                         maxLength={8}
                     />
 
-                    <button>Cadastrar</button>
+                    <ButtonComponent
+                        className='btn btn-green'
+                        size='btn-lg'
+                        text='Cadastrar'
+                    />
                 </div>
 
                 <aside>

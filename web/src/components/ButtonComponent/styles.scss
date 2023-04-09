@@ -1,0 +1,25 @@
+@import '../../../src/styles/colors.scss';
+
+.btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: brightness(95%);
+    transition: 0.4s;
+}
+
+.btn-green {
+    background-color: $green;
+    color: $white;
+}
+
+.btn-lg {
+    margin-top: 26px;
+    width: 95%;
+    height: 60px;
+    font-size: 18px;
+}
