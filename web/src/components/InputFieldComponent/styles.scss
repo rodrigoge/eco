@@ -16,6 +16,7 @@
         align-items: center;
         background-color: $light-grey;
         padding-left: 10px;
+        border: 1px solid transparent;
         border-radius: 8px;
         margin-top: 6px;
 
@@ -45,5 +46,10 @@
             }
 
         }
+    }
+
+    .div-input:focus-within {
+        border: 1px solid $green;
+        transition: 0.3s;
     }
 }
