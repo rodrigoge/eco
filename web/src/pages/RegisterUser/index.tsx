@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './styles.scss';
 import { HiOutlineMail } from 'react-icons/hi'
-import { AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineArrowLeft, AiOutlineUser } from 'react-icons/ai'
 import { BiLockAlt } from 'react-icons/bi'
 import registerImg from '../../assets/register-image.svg'
 import InputField from '../../components/InputFieldComponent';
 import ButtonComponent from '../../components/ButtonComponent';
+import { Link } from 'react-router-dom';
 
 export default function RegisterUser() {
     const [name, setName] = useState('');
@@ -18,6 +19,10 @@ export default function RegisterUser() {
                 <div className='register-user-aside'>
                     <header>
                         <h2>Cadastre-se agora na <span>eco</span>.</h2>
+                        <Link to={"/"} className='back-page'>
+                            <AiOutlineArrowLeft />
+                            <span>Voltar</span>
+                        </Link>
                     </header>
 
                     <div className="fields">

@@ -2,8 +2,15 @@ import HeaderComponent from '../../components/HeaderComponent';
 import './styles.scss';
 import heroImg from '../../assets/hero-image.svg';
 import ButtonComponent from '../../components/ButtonComponent';
+import { useNavigate } from "react-router-dom"
 
 export default function Homepage() {
+    const navigate = useNavigate()
+
+    async function sendToPoints() {
+        navigate('/points')
+    }
+
     return (
         <div className="home-container">
             <HeaderComponent />
@@ -19,6 +26,7 @@ export default function Homepage() {
                                 className='btn btn-green'
                                 size='btn-lg'
                                 text='Descarte o seu produto'
+                                onClick={sendToPoints}
                             />
                         </div>
 

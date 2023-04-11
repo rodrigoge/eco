@@ -7,9 +7,9 @@
     cursor: pointer;
 }
 
-.btn:hover {
+.btn:is(:hover, :focus) {
     filter: brightness(95%);
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
 .btn-green {
@@ -26,7 +26,7 @@
 
 .btn-lg {
     margin-top: 26px;
-    width: 100%;
+    width: 400px;
     height: 60px;
     font-size: 18px;
 }
