@@ -8,8 +8,9 @@ export default function ListPoints() {
                     Lista de Ecopontos disponíveis
                 </h2>
 
-                <div className="card">
-
+                <div className="cards">
+                    <div className="card"></div>
+                    <div className="card"></div>
                 </div>
             </div>
         </div>
