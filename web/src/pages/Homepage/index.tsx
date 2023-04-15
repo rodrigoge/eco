@@ -13,7 +13,7 @@ export default function Homepage() {
 
     return (
         <div className="home-container">
-            <HeaderComponent />
+            <HeaderComponent isHome />
             <div className="home-outbox">
                 <div className="home-box">
                     <div className="hero-section">

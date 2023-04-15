@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 export type ButtonType = {
     buttonId?: string;
     className?: string;

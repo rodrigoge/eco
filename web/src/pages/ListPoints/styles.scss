@@ -1,17 +1,3 @@
 @import '../../../src/styles/colors.scss';
 
-.points-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-
-    .points-box {
-        width: 1200px;
-        height: 800px;
-        background-color: $white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
+.points-container {}

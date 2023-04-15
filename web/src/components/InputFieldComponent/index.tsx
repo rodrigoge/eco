@@ -59,7 +59,6 @@ export default function InputFieldComponent({
                     :
                     <></>
                 }
-
             </div>
         </div >
     );
