@@ -12,6 +12,7 @@ export default function ListPoints() {
             <div className="ecopoints">
                 <header>
                     <h2>Lista de Ecopontos disponíveis</h2>
+
                     <Link to={"/"} className='back-page'>
                         <AiOutlineArrowLeft />
                         <span>Voltar</span>
@@ -19,138 +20,28 @@ export default function ListPoints() {
                 </header>
 
                 <div className="cards-in-row">
-                    <div className="card">
-                        <h3>Ecoponto São Paulo</h3>
+                    <div className="cards-container">
+                        <div className="card">
+                            <h3>Ecoponto São Paulo</h3>
 
-                        <div className="ecopoint-content">
-                            <span>Centro de Reciclagem</span>
-                            <span>São Paulo - SP</span>
-                            <span>07h às 22h</span>
-                        </div>
+                            <div className="ecopoint-content">
+                                <span>Centro de Reciclagem</span>
+                                <span>São Paulo - SP</span>
+                                <span>07h às 22h</span>
+                            </div>
 
-                        <div className="ecopoint-buttons">
-                            <ButtonComponent
-                                className='btn btn-blue'
-                                size='btn-sm'
-                                text='Cadastrar'
-                            />
-                            <ButtonComponent
-                                className='btn btn-green'
-                                size='btn-sm'
-                                text='Descartar'
-                            />
-                        </div>
-                    </div>
-                    <div className="card">
-                        <h3>Ecoponto São Paulo</h3>
-
-                        <div className="ecopoint-content">
-                            <span>Centro de Reciclagem</span>
-                            <span>São Paulo - SP</span>
-                            <span>07h às 22h</span>
-                        </div>
-
-                        <div className="ecopoint-buttons">
-                            <ButtonComponent
-                                className='btn btn-blue'
-                                size='btn-sm'
-                                text='Cadastrar'
-                            />
-                            <ButtonComponent
-                                className='btn btn-green'
-                                size='btn-sm'
-                                text='Descartar'
-                            />
-                        </div>
-                    </div>
-                    <div className="card">
-                        <h3>Ecoponto São Paulo</h3>
-
-                        <div className="ecopoint-content">
-                            <span>Centro de Reciclagem</span>
-                            <span>São Paulo - SP</span>
-                            <span>07h às 22h</span>
-                        </div>
-
-                        <div className="ecopoint-buttons">
-                            <ButtonComponent
-                                className='btn btn-blue'
-                                size='btn-sm'
-                                text='Cadastrar'
-                            />
-                            <ButtonComponent
-                                className='btn btn-green'
-                                size='btn-sm'
-                                text='Descartar'
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="cards-in-row">
-                    <div className="card">
-                        <h3>Ecoponto São Paulo</h3>
-
-                        <div className="ecopoint-content">
-                            <span>Centro de Reciclagem</span>
-                            <span>São Paulo - SP</span>
-                            <span>07h às 22h</span>
-                        </div>
-
-                        <div className="ecopoint-buttons">
-                            <ButtonComponent
-                                className='btn btn-blue'
-                                size='btn-sm'
-                                text='Cadastrar'
-                            />
-                            <ButtonComponent
-                                className='btn btn-green'
-                                size='btn-sm'
-                                text='Descartar'
-                            />
-                        </div>
-                    </div>
-                    <div className="card">
-                        <h3>Ecoponto São Paulo</h3>
-
-                        <div className="ecopoint-content">
-                            <span>Centro de Reciclagem</span>
-                            <span>São Paulo - SP</span>
-                            <span>07h às 22h</span>
-                        </div>
-
-                        <div className="ecopoint-buttons">
-                            <ButtonComponent
-                                className='btn btn-blue'
-                                size='btn-sm'
-                                text='Cadastrar'
-                            />
-                            <ButtonComponent
-                                className='btn btn-green'
-                                size='btn-sm'
-                                text='Descartar'
-                            />
-                        </div>
-                    </div>
-                    <div className="card">
-                        <h3>Ecoponto São Paulo</h3>
-
-                        <div className="ecopoint-content">
-                            <span>Centro de Reciclagem</span>
-                            <span>São Paulo - SP</span>
-                            <span>07h às 22h</span>
-                        </div>
-
-                        <div className="ecopoint-buttons">
-                            <ButtonComponent
-                                className='btn btn-blue'
-                                size='btn-sm'
-                                text='Cadastrar'
-                            />
-                            <ButtonComponent
-                                className='btn btn-green'
-                                size='btn-sm'
-                                text='Descartar'
-                            />
+                            <div className="ecopoint-buttons">
+                                <ButtonComponent
+                                    className='btn btn-blue'
+                                    size='btn-sm'
+                                    text='Cadastrar'
+                                />
+                                <ButtonComponent
+                                    className='btn btn-green'
+                                    size='btn-sm'
+                                    text='Descartar'
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

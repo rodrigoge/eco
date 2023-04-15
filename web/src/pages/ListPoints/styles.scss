@@ -33,41 +33,48 @@
 
         .cards-in-row {
             display: flex;
-            align-items: center;
             justify-content: center;
-            margin-top: 26px;
-            gap: 16px;
+            align-items: center;
 
-            .card {
-                display: flex;
-                flex-direction: column;
+            .cards-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                align-items: center;
                 justify-content: center;
-                padding: 30px;
-                width: 500px;
-                height: 240px;
-                background-color: $white;
-                border: 1px solid transparent;
-                border-radius: 6px;
-                cursor: pointer;
+                margin-top: 26px;
+                gap: 16px;
 
-                .ecopoint-content {
-                    margin-top: 4px;
+                .card {
                     display: flex;
                     flex-direction: column;
-                    gap: 2px;
+                    justify-content: center;
+                    padding: 30px;
+                    width: 500px;
+                    height: 240px;
+                    background-color: $white;
+                    border: 1px solid transparent;
+                    border-radius: 6px;
+                    cursor: pointer;
+
+                    .ecopoint-content {
+                        margin-top: 4px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2px;
+                    }
+
+                    .ecopoint-buttons {
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        margin-top: 16px;
+                    }
                 }
 
-                .ecopoint-buttons {
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    margin-top: 16px;
+                .card:hover {
+                    border: 1px solid $green;
+                    transition: 0.3s;
                 }
-            }
-
-            .card:hover {
-                border: 1px solid $green;
-                transition: 0.3s;
             }
         }
     }
