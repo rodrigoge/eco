@@ -2,7 +2,6 @@
 
 .register-user-container {
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,6 +17,7 @@
         align-items: center;
         background-color: $white;
         border-radius: 6px;
+        margin-top: 80px;
     }
 
     .register-user-aside {

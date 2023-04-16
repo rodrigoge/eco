@@ -8,11 +8,24 @@ import InputField from '../../components/InputFieldComponent';
 import ButtonComponent from '../../components/ButtonComponent';
 import { Link } from 'react-router-dom';
 import HeaderComponent from '../../components/HeaderComponent';
+import userApi from '../../services/userApi';
+import { toast } from 'react-toastify';
 
 export default function RegisterUser() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    async function handleRegisterUser(e: any) {
+        e.preventDefault();
+        const data = { name, email, password }
+        try {
+            await userApi.post('/v1/users/register', data);
+            toast.success('Usuário cadastrado com sucesso.');
+        } catch (err) {
+            toast.error('Erro ao realizar cadastro.');
+        }
+    }
 
     return (
         <>
@@ -66,11 +79,11 @@ export default function RegisterUser() {
                             />
                         </div>
 
-
                         <ButtonComponent
                             className='btn btn-green'
                             size='btn-lg'
                             text='Cadastrar'
+                            onClick={handleRegisterUser}
                         />
                     </div>
 
